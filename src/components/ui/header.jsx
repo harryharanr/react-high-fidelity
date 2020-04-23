@@ -19,7 +19,7 @@ function ElevationScroll(props) {
 const Header = (props) => {
   return (
     <ElevationScroll>
-      <AppBar>
+      <AppBar color="secondary">
         <Toolbar>Arc development</Toolbar>
       </AppBar>
     </ElevationScroll>
