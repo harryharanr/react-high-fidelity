@@ -6,6 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.svg";
 
@@ -51,7 +52,6 @@ const Header = (props) => {
   const { toolbarMargin, logoHeight, tabContainer, tab, button } = useStyles();
   const [value, setValue] = useState(0);
   const handleChange = (e, value) => {
-    console.log(e);
     setValue(value);
   };
   return (
@@ -66,11 +66,31 @@ const Header = (props) => {
               className={tabContainer}
               indicatorColor="primary"
             >
-              <Tab className={tab} label="Home" />
-              <Tab className={tab} label="Services" />
-              <Tab className={tab} label="The Revolution" />
-              <Tab className={tab} label="About Us" />
-              <Tab className={tab} label="Contact Us" />
+              <Tab className={tab} component={Link} to="/" label="Home" />
+              <Tab
+                className={tab}
+                component={Link}
+                to="/services"
+                label="Services"
+              />
+              <Tab
+                className={tab}
+                component={Link}
+                to="/revolution"
+                label="The Revolution"
+              />
+              <Tab
+                className={tab}
+                component={Link}
+                to="/about"
+                label="About Us"
+              />
+              <Tab
+                className={tab}
+                component={Link}
+                to="/contact"
+                label="Contact Us"
+              />
             </Tabs>
             <Button variant="contained" color="secondary" className={button}>
               Free Estimate
