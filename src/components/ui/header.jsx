@@ -2,6 +2,8 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import { makeStyles } from "@material-ui/styles";
 
 import logo from "../../assets/logo.svg";
@@ -27,10 +29,18 @@ const useStyles = makeStyles((theme) => ({
   logoHeight: {
     height: "7em",
   },
+  tabContainer: {
+    marginLeft: "auto",
+  },
+  tab: {
+    ...theme.typography.tab,
+    minWidth: 10,
+    marginLeft: "25px",
+  },
 }));
 
 const Header = (props) => {
-  const { toolbarMargin, logoHeight } = useStyles();
+  const { toolbarMargin, logoHeight, tabContainer, tab } = useStyles();
   console.log(useStyles());
   return (
     <React.Fragment>
@@ -38,6 +48,13 @@ const Header = (props) => {
         <AppBar position="fixed" color="primary">
           <Toolbar disableGutters>
             <img alt="company logo" src={logo} className={logoHeight} />
+            <Tabs className={tabContainer}>
+              <Tab className={tab} label="Home" />
+              <Tab className={tab} label="Services" />
+              <Tab className={tab} label="The Revolution" />
+              <Tab className={tab} label="About Us" />
+              <Tab className={tab} label="Contact Us" />
+            </Tabs>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
