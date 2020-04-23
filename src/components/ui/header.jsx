@@ -4,6 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
 
 import logo from "../../assets/logo.svg";
@@ -37,10 +38,17 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 10,
     marginLeft: "25px",
   },
+  button: {
+    ...theme.typography.estimate,
+    borderRadius: "50px",
+    marginLeft: "50px",
+    marginRight: "25px",
+    height: "45px",
+  },
 }));
 
 const Header = (props) => {
-  const { toolbarMargin, logoHeight, tabContainer, tab } = useStyles();
+  const { toolbarMargin, logoHeight, tabContainer, tab, button } = useStyles();
   console.log(useStyles());
   return (
     <React.Fragment>
@@ -55,6 +63,9 @@ const Header = (props) => {
               <Tab className={tab} label="About Us" />
               <Tab className={tab} label="Contact Us" />
             </Tabs>
+            <Button variant="contained" color="secondary" className={button}>
+              Free Estimate
+            </Button>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
