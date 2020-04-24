@@ -53,6 +53,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "25px",
     height: "45px",
   },
+  menu: {
+    backgroundColor: theme.palette.common.blue,
+    color: "white",
+    borderRadius: "0px",
+  },
+  menuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    "&:hover": {
+      opacity: 1,
+    },
+  },
 }));
 
 const Header = (props) => {
@@ -63,6 +75,8 @@ const Header = (props) => {
     tab,
     button,
     logoContainer,
+    menu,
+    menuItem,
   } = useStyles();
   /* For Active Tabs */
   const [value, setValue] = useState(0);
@@ -151,6 +165,8 @@ const Header = (props) => {
               open={open}
               onClose={handleClose}
               MenuListProps={{ onMouseLeave: handleClose }}
+              classes={{ paper: menu }}
+              elevation={0}
             >
               <MenuItem
                 onClick={() => {
@@ -159,6 +175,7 @@ const Header = (props) => {
                 }}
                 component={Link}
                 to="/services"
+                classes={{ root: menuItem }}
               >
                 Services
               </MenuItem>
@@ -169,6 +186,7 @@ const Header = (props) => {
                 }}
                 component={Link}
                 to="/customsoftware"
+                classes={{ root: menuItem }}
               >
                 Custom Software Development
               </MenuItem>
@@ -179,6 +197,7 @@ const Header = (props) => {
                 }}
                 component={Link}
                 to="/mobileapps"
+                classes={{ root: menuItem }}
               >
                 Mobile App Development
               </MenuItem>
@@ -189,6 +208,7 @@ const Header = (props) => {
                 }}
                 component={Link}
                 to="/websites"
+                classes={{ root: menuItem }}
               >
                 Website Development
               </MenuItem>
